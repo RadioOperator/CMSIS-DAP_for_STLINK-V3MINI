@@ -20,9 +20,6 @@ A new very good/low-cost Starter Kit ...... what we got:
 ## My code:
    -  /STLINKv3DAPv1_HID+VCP folder  - native HID version CMSIS-DAP, VCP (CDC) function added.
    -  /STLINKv3DAPv2_WinUSB  folder  - native WinUSB version CMSIS-DAP, VCP not complete.
-   -  .\CMSIS-DAP
-   -  .\RTE\USB
-   -  .\USER
 
 Both support SWD and JTAG mode. 
 
@@ -55,9 +52,9 @@ The STDC14 connector pin definations:
 Include Path:
   - C:\Keil\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Include            - maybe not same as yours.
   - C:\Keil\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Driver\Include     - maybe not same as yours.
-  - .\CMSIS-DAP.
-  - .\RTE\USB.
-  - .\USER.
+  - .\CMSIS-DAP
+  - .\RTE\USB
+  - .\USER
 
 
 ## Some issues:
