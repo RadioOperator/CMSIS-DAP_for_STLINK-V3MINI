@@ -43,11 +43,11 @@ The STDC14 connector pin definations:
  *---Not same as STLINK-V3MINI original.
 
 ## Compile Environment:
-  Keil: v5.28a.
-  Keil: STM32F7xx_DFP 2.12.0.
-  Keil: ARM CMSIS 5.6.0.
-  Keil: MDK-Middleware 7.9.0.
-  Keil: ARM Compiler 6, Optimization: Level [O0] (others, DAP not work, why?).
+   - Keil: v5.28a.
+   - STM32F7xx_DFP 2.12.0.
+   - Keil: ARM CMSIS 5.6.0.
+   - Keil: MDK-Middleware 7.9.0.
+   - Keil: ARM Compiler 6, Optimization: Level [O0] (other Opts, DAP not work, why?).
   
 Include Path:
   - C:\Keil\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Include            - maybe not same as yours.
