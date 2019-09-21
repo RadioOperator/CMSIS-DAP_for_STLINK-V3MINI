@@ -1,0 +1,4 @@
+load STM32F723IEKx 
+project name STCubeGenerated 
+project toolchain "MDK-ARM V5" 
+project path "C:\STM32F723\STM32F723IEK6DAP\RTE\Device\STM32F723IEKx\" 
