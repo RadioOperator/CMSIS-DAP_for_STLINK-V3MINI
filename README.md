@@ -4,6 +4,8 @@ Keywords: USB2.0 High-Speed CMSIS-DAP STLINK-V3 STM32F723IEK6 SWO VCP CDC DAPLin
 
 ST company created a great mini-size ARM debugger STLINK-V3MINI for STM32 MCU, cost you ~US$10 only. Re-Use the high-performance PCBA hardware, you can do more interesting projects or hobbies. 
 
+![alt text](https://github.com/RadioOperator/CMSIS-DAP_for_STLINK-V3MINI/blob/master/STLINK-V3MINI/Pics/STLINK-V3MINI_p3.jpg)
+
 A new very good/low-cost Starter Kit ...... what we got:
 
  - MCU: STM32F723IEK6, Arm® Cortex®-M7 32b MCU+FPU, 462DMIPS.
