@@ -20,10 +20,15 @@ A new very good/low-cost Starter Kit ...... what we got:
  
  
 ## My code:
-   -  /STLINKv3DAPv1_HID+VCP folder  - native HID version CMSIS-DAP, VCP (CDC) function added.
-   -  /STLINKv3DAPv2_WinUSB  folder  - native WinUSB version CMSIS-DAP, VCP not complete.
+   -  /STLINKv3DAPv1_HID+VCP      - native HID version CMSIS-DAP, VCP(CDC) added.
+   -  /STLINKv3DAPv2_WinUSB       - native WinUSB version, SWO_STREAM mode enabled.
+   -  /STLINKv3DAPv2_WinUSB+VCP   - WinUSB+VCP(CDC),       SWO_STREAM mode cannot enable.
+   -  /STLINKv3DAP_v1+v2          - v1+v2, no VCP(CDC),    SWO_STREAM mode cannot enable.
 
-Both support SWD and JTAG mode. 
+All support SWD and JTAG mode.  SWO_STREAM mode is important or not? please tell me.
+
+v1+v2, HID and WinUSB mode coexisted, suggest disable one in Device Manager force to another.
+
 
 The STDC14 connector pin definations:
 
@@ -61,23 +66,17 @@ Include Path:
 
 ## Some issues:
 1. not well-tested, need your report.
-2. SWO function, seems not work perfectly.
-3. ......
+2. ......
 
 
 ## Further improvements:
-1. WinUSB+VCP, the VCP(CDC) files is ready, need your help to make out a "Composite USB device".
-2. DAPLink version, need your help.
-3. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
-4. Try using other USB library to see what happened.
-5. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have many flash room.
-6. ......
+1. DAPLink version, need your help.
+2. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
+3. Try using other USB library to see what happened.
+4. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
+5. ......
 
 
 ## Important Warning:
 ---------------------
-The original STLINK-V3 device Firmware has been protected by ST company.
-Any normal methods, to try to read-back/program the original Flash ROM, will trigger a mass ERASE of the internal flash.
-This could cause your STLINK-V3 function total lost permanently, and cannot recover the factory firmware by yourself.
-When you decided to program the STLINK-V3MINI flash, it means the device will be no longer STLINK-V3MINI any more.
-
+The original STLINK-V3 device Firmware has been protected by ST company. Any normal methods, to try to read-back/program the original Flash ROM, will trigger a mass ERASE of the internal flash. This could cause your STLINK-V3 function total lost permanently, and cannot recover the factory firmware by yourself. When you decided to program the STLINK-V3MINI flash, it means the device will be no longer STLINK-V3MINI any more.
