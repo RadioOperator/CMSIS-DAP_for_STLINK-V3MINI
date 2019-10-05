@@ -3253,7 +3253,7 @@
 //   <o.0> DMA
 //     <i> Use dedicated DMA for transfers
 //     <i> If DMA is used all USB transfer data buffers have to be 4-byte aligned.
-#define RTE_OTG_HS_DMA                  0
+#define RTE_OTG_HS_DMA                  1
 
 // </e>
 

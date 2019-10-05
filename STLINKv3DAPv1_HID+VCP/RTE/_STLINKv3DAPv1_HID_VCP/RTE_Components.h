@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'STLINKv3DAPv2_WinUSB' 
- * Target:  'CMSIS-DAP_v2' 
+ * Project: 'STLINKv3DAPv1_HID+VCP' 
+ * Target:  'STLINKv3DAPv1_HID+VCP' 
  */
 
 #ifndef RTE_COMPONENTS_H
@@ -25,8 +25,11 @@
 /*  Keil.MDK-Plus::USB:Device:6.13.6 */
 #define RTE_USB_Device_0                /* USB Device 0 */
 
-/*  Keil.MDK-Plus::USB:Device:Custom Class:6.13.6 */
-#define RTE_USB_Device_CustomClass_0    /* USB Device Custom Class instance 0 */
+/*  Keil.MDK-Plus::USB:Device:CDC:6.13.6 */
+#define RTE_USB_Device_CDC_0            /* USB Device CDC instance 0 */
+
+/*  Keil.MDK-Plus::USB:Device:HID:6.13.6 */
+#define RTE_USB_Device_HID_0            /* USB Device HID instance 0 */
 
 /*  Keil::CMSIS Driver:USART:1.13.0 */
 #define RTE_Drivers_USART1              /* Driver USART1 */

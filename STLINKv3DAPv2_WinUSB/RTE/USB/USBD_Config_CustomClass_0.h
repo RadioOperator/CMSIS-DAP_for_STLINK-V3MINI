@@ -17,7 +17,7 @@
 
 //   <e0.0>Interface Association
 //   <i>Used for grouping of multiple interfaces to a single class.
-#define USBD_CUSTOM_CLASS0_IAD_EN                                  1
+#define USBD_CUSTOM_CLASS0_IAD_EN                                  0
 
 //       <o.0..7>Class Code
 //         <i>Class Codes are defined by USB-IF. For more information refer to
@@ -817,7 +817,7 @@
 #define USBD_CUSTOM_CLASS0_IF0_STR_EN                              1
 
 //         <s.126>Interface String
-#define USBD_CUSTOM_CLASS0_IF0_STR                                 L"CMSIS-DAP HS-WinUSB"
+#define USBD_CUSTOM_CLASS0_IF0_STR                                 L"CMSIS-DAP v2 HS-WinUSB"
 
 //       </e>
 //     </h>
