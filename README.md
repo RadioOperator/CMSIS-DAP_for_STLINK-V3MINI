@@ -20,14 +20,22 @@ A new very good/low-cost Starter Kit ...... what we got:
  
  
 ## My code:
+<<<<<<< HEAD
    -  /STLINKv3DAPv1_HID+VCP      - native HID+VCP mode, CMSIS-DAP v1, VCP(CDC) added.
    -  /STLINKv3DAPv2_WinUSB       - native WinUSB mode, CMSIS-DAP v2, SWO_STREAM mode enabled.
    -  /STLINKv3DAPv2_WinUSB+VCP   - WinUSB+VCP, SWO_STREAM mode cannot enable.
    -  /STLINKv3DAP_v1+v2          - v1+v2, no VCP, SWO_STREAM mode cannot enable.
+=======
+   -  /STLINKv3DAPv1_HID+VCP ------ native HID version CMSIS-DAP, VCP(CDC) added.
+   -  /STLINKv3DAPv2_WinUSB -------- native WinUSB version, SWO_STREAM mode enabled.
+   -  /STLINKv3DAPv2_WinUSB+VCP -- WinUSB+VCP(CDC), ---- SWO_STREAM mode cannot enable.
+   -  /STLINKv3DAP_v1+v2 ------------- v1+v2, no VCP(CDC), ---- SWO_STREAM mode cannot enable.
+>>>>>>> 7cd43a2cdcdcdfab271f011bfcb099c4cf30e365
 
 All support SWD and JTAG mode.  SWO_STREAM mode is important or not? please tell me.
 
 v1+v2, HID and WinUSB mode coexisted, suggest disable one in Device Manager force to another.
+(CMSIS-DAP v1 or v2, seems changed Names to CMSIS v1 or v2, anyway)
 
 
 The STDC14 connector pin definations:
