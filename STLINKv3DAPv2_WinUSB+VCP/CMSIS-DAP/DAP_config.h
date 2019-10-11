@@ -51,7 +51,6 @@ This information includes:
 #include "stm32f723xx.h"                        // Debug Unit Cortex-M Processor Header File
 #endif
 
-//radiooperator
 #include "stm32f7xx_hal_gpio.h"
 #include "STLINK_V3MINI_BSP.h"
 
@@ -92,7 +91,7 @@ This information includes:
 /// This configuration settings is used to optimize the communication performance with the
 /// debugger and depends on the USB peripheral. Typical vales are 64 for Full-speed USB HID or WinUSB,
 /// 1024 for High-speed USB HID and 512 for High-speed USB WinUSB.
-#define DAP_PACKET_SIZE         512U            ///< Specifies Packet Size in bytes.
+#define DAP_PACKET_SIZE         1024U            ///< Specifies Packet Size in bytes.
 
 /// Maximum Package Buffers for Command and Response data.
 /// This configuration settings is used to optimize the communication performance with the
@@ -112,7 +111,7 @@ This information includes:
 #define SWO_MANCHESTER          0               ///< SWO Manchester:  1 = available, 0 = not available.
 
 /// SWO Trace Buffer Size.
-#define SWO_BUFFER_SIZE         8192U           ///< SWO Trace Buffer Size in bytes (must be 2^n).
+#define SWO_BUFFER_SIZE         2048U           ///< SWO Trace Buffer Size in bytes (must be 2^n).
 
 /// SWO Streaming Trace.
 #define SWO_STREAM              0               ///< SWO Streaming Trace: 1 = available, 0 = not available.
@@ -160,60 +159,6 @@ __STATIC_INLINE uint8_t DAP_GetSerNumString (char *str) {
 
 ///@}
 
-
-// Debug Port I/O Pins for STM32F723, matched with STLINK-V3MINI board
-
-
-//SWCLK/TCK input pin           PB2 input
-#define PIN_SWCLK_TCK_I_PORT    GPIOB
-#define PIN_SWCLK_TCK_I_BIT     GPIO_PIN_2
-
-// SWCLK/TCK Pin                PH6 output
-#define PIN_SWCLK_TCK_O_PORT    GPIOH
-#define PIN_SWCLK_TCK_O_BIT     GPIO_PIN_6
-
-// SWDIO/TMS Pin input          PH7 input
-#define PIN_SWDIO_TMS_I_PORT    GPIOH
-#define PIN_SWDIO_TMS_I_BIT     GPIO_PIN_7
-
-// SWDIO Output Enable Pin      PF9 output
-#define PIN_SWDIO_TMS_O_PORT    GPIOF
-#define PIN_SWDIO_TMS_O_BIT     GPIO_PIN_9
-
-// TDI Pin                      PA1 input
-#define PIN_TDI_I_PORT          GPIOA
-#define PIN_TDI_I_BIT           GPIO_PIN_1
-
-// TDI Pin                      PF8 output
-#define PIN_TDI_O_PORT          GPIOF
-#define PIN_TDI_O_BIT           GPIO_PIN_8
-
-// TDO Pin                      PD2, input, UART5_RX
-#define PIN_TDO_PORT            GPIOD
-#define PIN_TDO_BIT             GPIO_PIN_2
-
-// nTRST Pin                    Not available
-#define PIN_nTRST_PORT
-#define PIN_nTRST_BIT
-
-// nRESET Pin                   PA6 output
-#define PIN_nRESET_PORT         GPIOA
-#define PIN_nRESET_BIT          GPIO_PIN_6
-
-// nRESET Output Enable Pin     Not available
-#define PIN_nRESET_OE_PORT      
-#define PIN_nRESET_OE_BIT       
-
-
-// Debug Unit LEDs
-
-// Connected LED                PA10 - High, RED
-#define LED_CONNECTED_PORT      GPIOA
-#define LED_CONNECTED_BIT       GPIO_PIN_10
-
-// Target Running LED           PA10 - Low,  GREEN
-#define LED_RUNNING_PORT        GPIOA
-#define LED_RUNNING_BIT         GPIO_PIN_10
 
 //**************************************************************************************************
 /** 
