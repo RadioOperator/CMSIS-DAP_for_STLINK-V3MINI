@@ -53,7 +53,11 @@ The STDC14 connector pin definations:
    - STM32F7xx_DFP 2.12.0.
    - Keil: ARM CMSIS 5.6.0.
    - Keil: MDK-Middleware 7.9.0.
-   - Keil: ARM Compiler 6, Optimization: Level [O0] (other Opts, DAP not work, why?).
+   - Keil: ARM Compiler 6 (AC6).
+   
+AC6 Optimization:
+  3 files cannot apply the Optimization, set to [O0] individually,
+  STLINK_V3MINI_BSP.c / JTAG_DP.c / SW_DP.c
   
 Include Path:
   - C:\Keil\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Include            - maybe not same as yours.
