@@ -56,7 +56,7 @@ The STDC14 connector pin definations:
    - Keil: ARM Compiler 6 (AC6 + MicroLIB).
    
 AC6 Optimization:
-   - 3 files cannot apply the Optimization, set to [O0] individually, STLINK_V3MINI_BSP.c / JTAG_DP.c / SW_DP.c
+   - 3 files cannot apply the Optimization, set to [O0] individually, STLINK_V3MINI_BSP.c, JTAG_DP.c, SW_DP.c
   
 Include Path:
   - C:\Keil\ARM\PACK\ARM\CMSIS\5.6.0\CMSIS\Include            - maybe not same as yours.
@@ -68,7 +68,8 @@ Include Path:
 
 ## Some issues:
 1. not well-tested, need your report.
-2. ......
+2. Stack uasge check and optimize, not performed.
+3. ......
 
 
 ## Further improvements:
