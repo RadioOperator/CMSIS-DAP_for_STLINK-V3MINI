@@ -89,4 +89,6 @@ int Init_LED_Timer (void);
 
 void vResetTarget(uint32_t bit);
 
+void vDelayMS(uint32_t ms);
+
 #endif //#ifndef STLINK_V3MINI_BSP_H

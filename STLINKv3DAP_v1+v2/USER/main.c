@@ -40,10 +40,8 @@ uint32_t HAL_GetTick (void) {
 
   /* If Kernel is not running wait approximately 1 ms then increment 
      and return auxiliary tick counter value */
-  for (i = (SystemCoreClock >> 14U); i > 0U; i--) {
-    __NOP(); __NOP(); __NOP(); __NOP(); __NOP(); __NOP();
-    __NOP(); __NOP(); __NOP(); __NOP(); __NOP(); __NOP();
-  }
+  vDelayMS(1);
+  
   return ++ticks;
 }
 #endif

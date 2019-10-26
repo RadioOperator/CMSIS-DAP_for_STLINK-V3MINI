@@ -382,4 +382,19 @@ void vResetTarget(uint32_t bit)
   else PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16;
 }
 
+//Delay Function, SystemCoreClock related
+//ms >= 1, ms=1, delay 1.1ms for [O0] AC6 Optimization
+void vDelayMS(uint32_t ms)
+{
+  uint32_t i;
+  
+  while (ms--)
+  {
+    for (i = (SystemCoreClock >> 13U); i > 0U; i--) {
+      __NOP(); __NOP(); __NOP(); __NOP(); __NOP(); __NOP();
+    }
+  }
+}
+
+
 //=============END=============================================================

@@ -276,9 +276,7 @@ __STATIC_INLINE void PORT_JTAG_SETUP (void) {
   
 //Reset Target
   PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
-  
-  uint32_t u32Count = 10000000; while (u32Count--) { __NOP(); __NOP(); } //~115ms
-
+  vDelayMS(100);
   PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
 }
  
@@ -358,9 +356,7 @@ __STATIC_INLINE void PORT_SWD_SETUP (void) {
   
 //Reset Target
   PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
-  
-  uint32_t u32Count = 10000000; while (u32Count--) { __NOP(); __NOP(); } //~115ms
-
+  vDelayMS(100);
   PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
 }
 
