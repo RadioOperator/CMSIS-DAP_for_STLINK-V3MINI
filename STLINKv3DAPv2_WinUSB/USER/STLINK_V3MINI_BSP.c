@@ -5,8 +5,8 @@
   * @brief   STLINK-V3MINI Board Support Package
   *          LED GPIO initialize
   *          DAP GPIO initialize
-  * @version V1.0
-  * @date    2019-09-21
+  * @version V1.1
+  * @date    2019-11-09
   ******************************************************************************
   */
 
@@ -158,6 +158,8 @@ void BSP_GPIO_Init(void)
 //  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
   HAL_GPIO_Init(PIN_nRESET_PORT, &GPIO_InitStruct);
 
+  PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;
+
 // SWDIO Output Enable Pin      PF9 output
   GPIO_InitStruct.Pin   = PIN_SWDIO_TMS_O_BIT;
   GPIO_InitStruct.Mode  = GPIO_MODE_OUTPUT_PP;
@@ -214,7 +216,9 @@ void BSP_GPIO_Init(void)
 
 //=============LED Control=====================================================
 
-#define LED_TIMER_TICK_TIME   125     //125ms
+#define LED_TIMER_TICK_TIME   63     //63ms
+#define LED_RED_ON            LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT
+#define LED_GREEN_ON          LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT << 16
 
 LED_Mode_t LED_Mode = LED_STANDBY;    //LED mode
 
@@ -229,17 +233,17 @@ void LED_Timer_Callback (void const *arg)
   switch (LED_Mode)
   {
     case LED_DEBUG_PAUSE:
-      LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT; //RED
+                              LED_RED_ON; //RED
     break;
     
     case LED_DEBUG_RUN:
-      if (u8counter1 & 0x02 ) LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT << 16;
-      else                    LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT;
+      if (u8counter1 & 0x02 ) LED_GREEN_ON;
+      else                    LED_RED_ON;
     break;
     
     case LED_VCP_RUN:
-      if (u8counter1 & 0x01 ) LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT << 16;
-      else                    LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT;
+      if (u8counter1 & 0x01 ) LED_GREEN_ON;
+      else                    LED_RED_ON;
       
       if (++u8counter2 >= 3)
       {
@@ -249,8 +253,8 @@ void LED_Timer_Callback (void const *arg)
     break;
       
     default:  //LED_STANDBY mode
-      if (u8counter1 >= 1 ) LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT << 16;
-      else                  LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT;
+      if (u8counter1 >= 1 )   LED_GREEN_ON;
+      else                    LED_RED_ON;
       LED_Mode = LED_STANDBY;
     break;
   }
@@ -381,20 +385,5 @@ void vResetTarget(uint32_t bit)
   if (bit & 1) PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;
   else PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16;
 }
-
-//Delay Function, SystemCoreClock related
-//ms >= 1, ms=1, delay 1.1ms for [O0] AC6 Optimization
-void vDelayMS(uint32_t ms)
-{
-  uint32_t i;
-  
-  while (ms--)
-  {
-    for (i = (SystemCoreClock >> 13U); i > 0U; i--) {
-      __NOP(); __NOP(); __NOP(); __NOP(); __NOP(); __NOP();
-    }
-  }
-}
-
 
 //=============END=============================================================

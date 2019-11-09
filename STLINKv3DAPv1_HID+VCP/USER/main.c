@@ -5,13 +5,12 @@
   *
   * @brief   CMSIS-DAP v1 for STLINK-V3MINI
   *
-  * @version V1.0
-  * @date    2019-09-21
+  * @version V1.1
+  * @date    2019-11-09
   ******************************************************************************
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
 
 #ifdef _RTE_
 #include "RTE_Components.h"             // Component selection
@@ -19,14 +18,15 @@
 #ifdef RTE_CMSIS_RTOS2                  // when RTE component CMSIS RTOS2 is used
 #include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 #endif
+#include "stm32f7xx_hal.h"
 #include "osObjects.h"
 #include "rl_usb.h"
 #include "DAP_config.h"
 #include "DAP.h"
 #include "STLINK_V3MINI_BSP.h"
 
-#ifdef RTE_CMSIS_RTOS2_RTX5
 
+#ifdef RTE_CMSIS_RTOS2_RTX5
 /**
   * Override default HAL_GetTick function
   */
@@ -40,30 +40,17 @@ uint32_t HAL_GetTick (void) {
 
   /* If Kernel is not running wait approximately 1 ms then increment 
      and return auxiliary tick counter value */
-  vDelayMS(1);
+  Delayms(1);
   
   return ++ticks;
 }
 #endif
 
-/** @addtogroup STM32F7xx_HAL_Examples
-  * @{
-  */
-
-/** @addtogroup Templates
-  * @{
-  */ 
-
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
 static void SystemClock_Config(void);
 static void Error_Handler(void);
 static void MPU_Config(void);
 static void CPU_CACHE_Enable(void);
-
 
 /* Private functions ---------------------------------------------------------*/
 // Application Main program
@@ -88,6 +75,7 @@ __NO_RETURN void app_main (void *argument) {
   osDelay(osWaitForever);
   for (;;) {};
 }
+
 /**
   * @brief  Main program
   * @param  None
@@ -262,7 +250,6 @@ static void CPU_CACHE_Enable(void)
 }
 
 #ifdef  USE_FULL_ASSERT
-
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.
@@ -281,13 +268,3 @@ void assert_failed(uint8_t* file, uint32_t line)
   }
 }
 #endif
-
-/**
-  * @}
-  */ 
-
-/**
-  * @}
-  */ 
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

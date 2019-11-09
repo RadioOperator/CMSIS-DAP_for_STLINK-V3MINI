@@ -5,8 +5,8 @@
   * @brief   STLINK-V3MINI Board Support Package
   *          LED GPIO initialize
   *          DAP GPIO initialize
-  * @version V1.0
-  * @date    2019-10-10
+  * @version V1.1
+  * @date    2019-11-09
   ******************************************************************************
   */
 
@@ -89,6 +89,5 @@ int Init_LED_Timer (void);
 
 void vResetTarget(uint32_t bit);
 
-void vDelayMS(uint32_t ms);
 
 #endif //#ifndef STLINK_V3MINI_BSP_H

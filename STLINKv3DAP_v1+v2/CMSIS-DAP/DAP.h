@@ -280,7 +280,8 @@ extern void     DAP_Setup (void);
 #define DELAY_SLOW_CYCLES       3U      // Number of cycles for one iteration
 #endif
 __STATIC_FORCEINLINE void PIN_DELAY_SLOW (uint32_t delay) {
-  uint32_t count;
+  
+  volatile uint32_t count; //modified according to https://github.com/ARM-software/CMSIS_5/issues/389
 
   count = delay;
   while (--count);

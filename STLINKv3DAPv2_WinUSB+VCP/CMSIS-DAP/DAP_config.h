@@ -17,7 +17,7 @@
  *
  * ----------------------------------------------------------------------
  *
- * $Date:        1. December 2017
+ * $Date:        1. December 2017 (2019-11-09, Modified for STLINK-V3MINI hardware)
  * $Revision:    V2.0.0
  *
  * Project:      CMSIS-DAP Configuration
@@ -53,6 +53,8 @@ This information includes:
 
 #include "stm32f7xx_hal_gpio.h"
 #include "STLINK_V3MINI_BSP.h"
+
+extern void     Delayms         (uint32_t delay);
 
 /// Processor Clock of the Cortex-M MCU used in the Debug Unit.
 /// This value is used to calculate the SWD/JTAG clock speed.
@@ -276,7 +278,7 @@ __STATIC_INLINE void PORT_JTAG_SETUP (void) {
   
 //Reset Target
   PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
-  vDelayMS(100);
+  Delayms(100);
   PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
 }
  
@@ -356,7 +358,7 @@ __STATIC_INLINE void PORT_SWD_SETUP (void) {
   
 //Reset Target
   PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
-  vDelayMS(100);
+  Delayms(100);
   PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
 }
 
@@ -573,9 +575,6 @@ __STATIC_INLINE void LED_CONNECTED_OUT (uint32_t bit) {
   
   if (bit & 1) LED_Mode = LED_DEBUG_PAUSE;
   else         LED_Mode = LED_STANDBY;
-
-//  if (bit & 1) LED_CONNECTED_PORT->BSRR = LED_CONNECTED_BIT;
-//  else LED_CONNECTED_PORT->BSRR = (uint32_t)LED_CONNECTED_BIT << 16;
 }
 
 /** Debug Unit: Set status Target Running LED.
@@ -587,9 +586,6 @@ __STATIC_INLINE void LED_RUNNING_OUT (uint32_t bit) {
   
   if (bit & 1) LED_Mode = LED_DEBUG_RUN;
   else         LED_Mode = LED_DEBUG_PAUSE;
-
-//  if (bit & 1) LED_RUNNING_PORT->BSRR = (uint32_t)LED_RUNNING_BIT << 16;
-//  else LED_RUNNING_PORT->BSRR = LED_RUNNING_BIT;
 }
 
 ///@}
