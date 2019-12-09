@@ -53,7 +53,7 @@ The STDC14 connector pin definations:
    - STM32F7xx_DFP 2.12.0.
    - Keil: ARM CMSIS 5.6.0.
    - Keil: MDK-Middleware 7.9.0.
-   - Keil: ARM Compiler 6 (AC6 + MicroLIB, Optimization[Os]).
+   - Keil: ARM Compiler 6 (AC6 + MicroLIB, Optimization[-Ofast]).
    
 
 Include Path:
@@ -71,11 +71,10 @@ Include Path:
 
 
 ## Further improvements:
-1. DAPLink version, need your help.
-2. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
-3. Try using other USB library to see what happened.
-4. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
-5. ......
+1. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
+2. Try using other USB library to see what happened.
+3. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
+4. ......
 
 
 ## Important Warning:
