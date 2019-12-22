@@ -385,16 +385,21 @@ static uint32_t DAP_SWJ_Clock(const uint8_t *request, uint8_t *response) {
     DAP_Data.fast_clock  = 0U;
 
     delay = ((CPU_CLOCK/2U) + (clock - 1U)) / clock;
-    if (delay > IO_PORT_WRITE_CYCLES) {
-      delay -= IO_PORT_WRITE_CYCLES;
-      delay  = (delay + (DELAY_SLOW_CYCLES - 1U)) / DELAY_SLOW_CYCLES;
-    } else {
-      delay  = 1U;
-    }
-
-    DAP_Data.clock_delay = delay;
+                                       //RadioOperator, align for STLINK-V3MINI hardware only:
+    if      (delay <=  11) delay =  1; //1-KEIL clock 10M, max SWD 18 MHz, JTAG 8.6MHz
+    else if (delay <=  22) delay =  2; //2-KEIL clock 5M,  max SWD 8.6MHz, JTAG 8.0MHz
+    else if (delay <=  54) delay =  9; //9-KEIL clock 2M,  max SWD 5.5MHz, JTAG 4.5MHz
+    else if (delay <= 108) delay = 40; //40-KEIL clock 1M, max SWD 2.2MHz, JTAG 2.1MHz
+    else     delay /= 2;               //for the other KEIL clock settings, double (clock x 2)
   }
-
+  
+  if (DAP_Data.debug_port == DAP_PORT_JTAG)
+  {
+    delay += 1; //JTAG mode >=2
+  }
+  
+  DAP_Data.clock_delay = delay;
+  
   *response = DAP_OK;
 #else
   *response = DAP_ERROR;

@@ -52,8 +52,8 @@ The STDC14 connector pin definations:
    - Keil: v5.28a.
    - STM32F7xx_DFP 2.12.0.
    - Keil: ARM CMSIS 5.6.0.
-   - Keil: MDK-Middleware 7.9.0.
-   - Keil: ARM Compiler 6 (AC6 + MicroLIB, Optimization[Os]).
+   - Keil: MDK-Middleware 7.10.0.
+   - Keil: ARM Compiler 6 (AC6 + MicroLIB, Optimization[-Ofast]).
    
 
 Include Path:
@@ -76,6 +76,10 @@ Include Path:
 3. Try using other USB library to see what happened.
 4. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
 5. ......
+
+
+## New Release Notes:
+ - 2019-12-22, improved SWD clock, max 18MHz (Keil - 10MHz).  USB VID changed to ST VID.
 
 
 ## Important Warning:

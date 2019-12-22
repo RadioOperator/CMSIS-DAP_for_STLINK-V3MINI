@@ -295,7 +295,9 @@ __STATIC_FORCEINLINE void PIN_DELAY_SLOW (uint32_t delay) {
   ".syntax unified\n"
   "0:\n\t"
     "subs %0,%0,#1\n\t"
-    "bne  0b\n"
+    "bne  0b\n\t"
+    "nop\n\t"                  //RadioOperator, align for STLINK-V3MINI hardware only
+    "nop\n"
   : "+l" (delay) : : "cc"
   );
 }

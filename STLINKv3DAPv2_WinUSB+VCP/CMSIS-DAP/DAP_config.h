@@ -56,6 +56,8 @@ This information includes:
 
 extern void     Delayms         (uint32_t delay);
 
+#define DELAY_SLOW_CYCLES       1               //RadioOperator, align for STLINK-V3MINI hardware only, (default=3)
+
 /// Processor Clock of the Cortex-M MCU used in the Debug Unit.
 /// This value is used to calculate the SWD/JTAG clock speed.
 #define CPU_CLOCK               216000000U      ///< Specifies the CPU Clock in Hz.
@@ -87,7 +89,7 @@ extern void     Delayms         (uint32_t delay);
 /// Default communication speed on the Debug Access Port for SWD and JTAG mode.
 /// Used to initialize the default SWD/JTAG clock frequency.
 /// The command \ref DAP_SWJ_Clock can be used to overwrite this default setting.
-#define DAP_DEFAULT_SWJ_CLOCK   24000000U        ///< Default SWD/JTAG clock frequency in Hz.
+#define DAP_DEFAULT_SWJ_CLOCK   10000000U        ///< Default SWD/JTAG clock frequency in Hz.
 
 /// Maximum Package Size for Command and Response data.
 /// This configuration settings is used to optimize the communication performance with the
@@ -198,6 +200,14 @@ of the same I/O port. The following SWDIO I/O Pin functions are provided:
 */
 
 
+static void vResetTargetBoard(uint32_t delayms)
+{
+  PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
+  Delayms(delayms);
+  PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
+}
+
+
 // Configure DAP I/O pins ------------------------------
 
 /** Setup JTAG I/O pins: TCK, TMS, TDI, TDO, nTRST, and nRESET.
@@ -277,11 +287,10 @@ __STATIC_INLINE void PORT_JTAG_SETUP (void) {
   HAL_GPIO_Init(PIN_TDI_I_PORT, &GPIO_InitStruct);
   
 //Reset Target
-  PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
-  Delayms(100);
-  PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
+  vResetTargetBoard(100);
 }
- 
+
+
 /** Setup SWD I/O pins: SWCLK, SWDIO, and nRESET.
 Configures the DAP Hardware I/O pins for Serial Wire Debug (SWD) mode:
  - SWCLK, SWDIO, nRESET to output mode and set to default high level.
@@ -357,10 +366,9 @@ __STATIC_INLINE void PORT_SWD_SETUP (void) {
   HAL_GPIO_Init(PIN_TDI_O_PORT, &GPIO_InitStruct);
   
 //Reset Target
-  PIN_nRESET_PORT->BSRR = (uint32_t)PIN_nRESET_BIT << 16; //set nRESET to Low
-  Delayms(100);
-  PIN_nRESET_PORT->BSRR = PIN_nRESET_BIT;                 //set nRESET to High
+  vResetTargetBoard(100);
 }
+
 
 /** Disable JTAG/SWD I/O Pins.
 Disables the DAP Hardware I/O pins which configures:
