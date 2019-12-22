@@ -71,15 +71,14 @@ Include Path:
 
 
 ## Further improvements:
-1. DAPLink version, need your help.
-2. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
-3. Try using other USB library to see what happened.
-4. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
-5. ......
+1. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
+2. Try using other USB library to see what happened.
+3. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
+4. ......
 
 
 ## New Release Notes:
- - 2019-12-22, improved SWD clock, max 18MHz (Keil - 10MHz).  USB VID changed to ST VID.
+  - 2019-12-22, improved SWD clock, max 18MHz (Keil - 10MHz).  USB VID changed to ST VID.
 
 
 ## Important Warning:
