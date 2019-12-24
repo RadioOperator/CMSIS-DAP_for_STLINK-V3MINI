@@ -78,7 +78,15 @@ Include Path:
 
 
 ## New Release Notes:
-  - 2019-12-22, improved SWD clock, max 18MHz (Keil - 10MHz).  USB VID changed to ST VID.
+  - 2019-12-22, improved SWD clock, max 18MHz (Keil - 10MHz). USB VID changed to ST VID=0x0483 for all.
+  The USB PID as following:
+    - STLINKv3DAPv1_HID+VCP -------- PID 0x572C
+    - STLINKv3DAPv2_WinUSB+VCP --- PID 0x572D
+    - STLINKv3DAPv2_WinUSB ---------- PID 0x572E
+    - STLINKv3DAP_v1+v2 -------------- PID 0x572F
+    - My STM32F103C8T6 project ------ PID 0x572A ([STM32F103C8T6_CMSIS-DAP_SWO])
+    
+    [STM32F103C8T6_CMSIS-DAP_SWO]: https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO
 
 
 ## Important Warning:
