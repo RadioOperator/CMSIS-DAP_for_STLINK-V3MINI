@@ -1,0 +1,3 @@
+[submodule "Yet_Another_Bootloader"]
+	path = Yet_Another_Bootloader
+	url = https://github.com/RadioOperator/Yet_Another_Bootloader
