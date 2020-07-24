@@ -71,7 +71,10 @@ Include Path:
 
 
 ## Further improvements:
-1. General USB-DFU bootloader, support drag&drop easy update any user App, need your help.
+1. General USB-DFU bootloader, support drag&drop easy update any user App.  
+>>  2020-07-24 update: MSC Bootloader function is Done!  
+>>  visit: https://github.com/RadioOperator/Yet_Another_Bootloader  
+
 2. Try using other USB library to see what happened.
 3. Develop SPI/I2C/CAN bus, Logic analyzer/emulator functions, we have a large flash room.
 4. ......
