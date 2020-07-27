@@ -4,6 +4,15 @@ Keywords: USB2.0 High-Speed CMSIS-DAP STLINK-V3 STM32F723IEK6 SWO VCP CDC DAPLin
 
 ST company created a great mini-size ARM debugger STLINK-V3MINI for STM32 MCU, cost you ~US$10 only. Re-Use the high-performance PCBA hardware, you can do more interesting projects or hobbies. 
 
+## Important Notice:
+ This repo is an old project for CMSIS-DAP!!! If you are a new comer here, please visit my Yet_Another_Bootloader (YAB) repo first on  
+ https://github.com/RadioOperator/Yet_Another_Bootloader.  
+ Please try to install the YAB first. YAB (STLINKv3_YAB project) could co-exist with STLINK-V3 Factory Bootloader, and install one or two of pre-built CMSIS-DAP code to test the DAP function, no need to destroy the factory bootloader.
+ 
+ Beacuse the factory bootloader still in the device, it's very easy to recover STLINK-V3 functions using STSW-LINK007 update tools.
+ (please DONOT use the new verion STSW-LINK007 v2.36.26 or later, the new version will locked the STM32F723 IC's SWD port).  
+ 
+
 ![alt text](https://github.com/RadioOperator/CMSIS-DAP_for_STLINK-V3MINI/blob/master/STLINK-V3MINI/Pics/STLINK-V3MINI_p3.jpg)
 
 A new very good/low-cost Starter Kit ...... what we got:
@@ -92,6 +101,7 @@ Include Path:
     [STM32F103C8T6_CMSIS-DAP_SWO]: https://github.com/RadioOperator/STM32F103C8T6_CMSIS-DAP_SWO
 
 
-## Important Warning:
----------------------
-The original STLINK-V3 device Firmware has been protected by ST company. Any normal methods, to try to read-back/program the original Flash ROM, will trigger a mass ERASE of the internal flash. This could cause your STLINK-V3 function total lost permanently, and cannot recover the factory firmware by yourself. When you decided to program the STLINK-V3MINI flash, it means the device will be no longer STLINK-V3MINI any more.
+### Declarations:  
+  
+>  The project is for experiments only. Use any parts and info on your own risks.  
+
